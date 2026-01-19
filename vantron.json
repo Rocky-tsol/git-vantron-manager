@@ -1,0 +1,438 @@
+[
+  {
+    "app_name": "ThermaTouch Service",
+    "package_name": "com.thermasol.thermatouchservice",
+    "current_version": "10.1.1",
+    "updated": "04-10-2024",
+    "apk_icon_url": "emptyUrl"
+  },
+  {
+    "app_name": "TouchSteam",
+    "package_name": "com.thermasol.touchsteam2",
+    "current_version": "10.2.2",
+    "updated": "06-26-2024",
+    "min_service_version": "10.1.1",
+    "apk_icon_url": "emptyUrl"
+  },
+  {
+    "app_name": "Amazon Music",
+    "package_name": "com.amazon.mp3",
+    "current_version": "24.22.1",
+    "updated": "24346",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.amazon.mp3.png"
+  },
+  {
+    "app_name": "AP Mobile",
+    "package_name": "mnn.Android",
+    "current_version": "6.0.14",
+    "updated": "24346",
+    "min_core_req": "4",
+    "min_service_version": "Video links don't work because device doesn't have the YouTube app. You may find these videos by searching for Associated Press in the NewPipe app.",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/mnn.Android.png"
+  },
+  {
+    "app_name": "Apple Music",
+    "package_name": "com.apple.android.music",
+    "current_version": "4.9.3",
+    "updated": "24346",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.apple.android.music.png"
+  },
+  {
+    "app_name": "Audible",
+    "package_name": "com.audible.application",
+    "current_version": "3.89.0",
+    "updated": "24346",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.audible.application.png"
+  },
+  {
+    "app_name": "BBC News",
+    "package_name": "bbc.mobile.news.uk",
+    "current_version": "8.16.0.24944",
+    "updated": "250508",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/eos-apps/icons/bbc.mobile.news.uk.png"
+  },
+  {
+    "app_name": "BBC Sounds",
+    "package_name": "com.bbc.sounds",
+    "current_version": "2.16.0.21104",
+    "updated": "24036",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.bbc.sounds.png"
+  },
+  {
+    "app_name": "Blink",
+    "package_name": "com.immediasemi.android.blink",
+    "current_version": "38.0",
+    "updated": "24346",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.immediasemi.android.blink.png"
+  },
+  {
+    "app_name": "Bluetooth Chat",
+    "package_name": "com.glodanif.bluetoothchat",
+    "current_version": "1.3.2",
+    "updated": "22019",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.glodanif.bluetoothchat.png"
+  },
+  {
+    "app_name": "Calm",
+    "package_name": "com.calm.android",
+    "current_version": "6.59",
+    "updated": "24346",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.calm.android.png"
+  },
+  {
+    "app_name": "Chakra Meditation",
+    "package_name": "com.ChakraMeditation",
+    "current_version": "1.2.1",
+    "updated": "22001",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.ChakraMeditation.png"
+  },
+  {
+    "app_name": "CNN",
+    "package_name": "com.cnn.mobile.android.phone",
+    "current_version": "24.21.0",
+    "updated": "24348",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.cnn.mobile.android.phone.png"
+  },
+  {
+    "app_name": "Control4",
+    "package_name": "com.control4.phoenix",
+    "current_version": "324.29.0.13",
+    "updated": "24348",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.control4.phoenix.png"
+  },
+  {
+    "app_name": "Crestron Home",
+    "package_name": "com.crestron.phoenix.app",
+    "current_version": "4.4.18",
+    "updated": "25043",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.crestron.phoenix.app.png"
+  },
+  {
+    "app_name": "ESPN",
+    "package_name": "com.espn.score_center",
+    "current_version": "8.0.1",
+    "updated": "20250825",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.espn.score_center.png"
+  },
+  {
+    "app_name": "Facebook Lite",
+    "package_name": "com.facebook.lite",
+    "current_version": "438.0.0.0.93",
+    "updated": "24348",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.facebook.lite.png"
+  },
+  {
+    "app_name": "Fox Business",
+    "package_name": "com.twoergo.foxbusiness",
+    "current_version": "4.74.1",
+    "updated": "24348",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.twoergo.foxbusiness.png"
+  },
+  {
+    "app_name": "Fox News",
+    "package_name": "com.foxnews.android",
+    "current_version": "5.4.1",
+    "updated": "24348",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.foxnews.android.png"
+  },
+  {
+    "app_name": "Headspace",
+    "package_name": "com.getsomeheadspace.android",
+    "current_version": "4.234.2",
+    "updated": "24348",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.getsomeheadspace.android.png"
+  },
+  {
+    "app_name": "Hue",
+    "package_name": "com.philips.lighting.hue2",
+    "current_version": "4.41.0",
+    "updated": "23130",
+    "min_core_req": "4",
+    "min_service_version": "Sign in feature doesn't work",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.philips.lighting.hue2.png"
+  },
+  {
+    "app_name": "Hulu",
+    "package_name": "com.hulu.plus",
+    "current_version": "5.11.0",
+    "updated": "24353",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.hulu.plus.png"
+  },
+  {
+    "app_name": "iHeartRadio",
+    "package_name": "com.clearchannel.iheartradio.controller",
+    "current_version": "10.46.0",
+    "updated": "24353",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.clearchannel.iheartradio.controller.png"
+  },
+  {
+    "app_name": "Insider",
+    "package_name": "com.freerange360.mpp.businessinsider",
+    "current_version": "15.9.0",
+    "updated": "24353",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.freerange360.mpp.businessinsider.png"
+  },
+  {
+    "app_name": "Instagram Lite",
+    "package_name": "com.instagram.lite",
+    "current_version": "438.0.0.13.102",
+    "updated": "24353",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.instagram.lite.png"
+  },
+  {
+    "app_name": "Max",
+    "package_name": "com.wbd.stream",
+    "current_version": "6.8.0.88",
+    "updated": "20251110",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.wbd.stream.png"
+  },
+  {
+    "app_name": "NBC News",
+    "package_name": "com.zumobi.msnbc",
+    "current_version": "10.2.0",
+    "updated": "24043",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.zumobi.msnbc.png"
+  },
+  {
+    "app_name": "Netflix",
+    "package_name": "com.netflix.mediaclient",
+    "current_version": "9.25.1",
+    "updated": "250729",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.netflix.mediaclient.png"
+  },
+  {
+    "app_name": "NewPipe",
+    "package_name": "org.schabi.newpipe",
+    "current_version": "0.27.6",
+    "updated": "25036",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps/icons/org.schabi.newpipe.png"
+  },
+  {
+    "app_name": "OTT Navigator",
+    "package_name": "studio.scillarium.ottnavigator",
+    "current_version": "1.6.9.4",
+    "updated": "23248",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/studio.scillarium.ottnavigator.png"
+  },
+  {
+    "app_name": "Pandora",
+    "package_name": "com.pandora.android",
+    "current_version": "2411.1",
+    "updated": "24355",
+    "min_core_req": "1",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.pandora.android.png"
+  },
+  {
+    "app_name": "Paramount+",
+    "package_name": "com.cbs.ca",
+    "current_version": "15.1.2",
+    "updated": "20250825",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.cbs.app.png"
+  },
+  {
+    "app_name": "Pinterest",
+    "package_name": "com.pinterest",
+    "current_version": "12.46.0",
+    "updated": "24355",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.pinterest.png"
+  },
+  {
+    "app_name": "Pluto TV",
+    "package_name": "tv.pluto.android",
+    "current_version": "5.50.0",
+    "updated": "24355",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/tv.pluto.android.png"
+  },
+  {
+    "app_name": "Prime Video",
+    "package_name": "com.amazon.avod.thirdpartyclient",
+    "current_version": "3.0.422.257",
+    "updated": "250917",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.amazon.avod.thirdpartyclient.png"
+  },
+  {
+    "app_name": "Radio USA",
+    "package_name": "radio.usa",
+    "current_version": "3.4.14",
+    "updated": "23249",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/radio.usa.png"
+  },
+  {
+    "app_name": "Radios Canada",
+    "package_name": "com.appmind.radios.ca",
+    "current_version": "3.4.14",
+    "updated": "23249",
+    "min_core_req": "4",
+    "min_service_version": "This app doesn't work on WiFi",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.appmind.radios.ca.png"
+  },
+  {
+    "app_name": "Relaxio",
+    "package_name": "net.relaxio.relaxio",
+    "current_version": "1.7.1",
+    "updated": "22001",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/net.relaxio.relaxio.png"
+  },
+  {
+    "app_name": "SiriusXM",
+    "package_name": "com.sirius",
+    "current_version": "7.11.0",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.sirius.png"
+  },
+  {
+    "app_name": "SiriusXM Canada",
+    "package_name": "com.siriusca",
+    "current_version": "6.7.0",
+    "updated": "24033",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.siriusca.png"
+  },
+  {
+    "app_name": "SkyTracker",
+    "package_name": "com.globaltv.android.weather",
+    "current_version": "5.7.4000",
+    "updated": "23132",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.globaltv.android.weather.png"
+  },
+  {
+    "app_name": "Sonos",
+    "package_name": "com.sonos.acr2",
+    "current_version": "80.14.06",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.sonos.acr2.png"
+  },
+  {
+    "app_name": "Speedtest",
+    "package_name": "org.zwanoo.android.speedtest",
+    "current_version": "5.5.2",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/org.zwanoo.android.speedtest.png"
+  },
+  {
+    "app_name": "Spotify",
+    "package_name": "com.spotify.music",
+    "current_version": "9.0.2.459",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.spotify.music.png"
+  },
+  {
+    "app_name": "TED",
+    "package_name": "com.ted.android",
+    "current_version": "4.5.6",
+    "updated": "22001",
+    "min_core_req": "4",
+    "min_service_version": "Video thumbnails don't show up but the videos play",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.ted.android.png"
+  },
+  {
+    "app_name": "Televizo",
+    "package_name": "com.ottplay.ottplay",
+    "current_version": "1.9.7.71",
+    "updated": "24365",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.ottplay.ottplay.png"
+  },
+  {
+    "app_name": "The Globe",
+    "package_name": "com.theglobeandmail.headliner",
+    "current_version": "7.6.4",
+    "updated": "24045",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.theglobeandmail.headliner.png"
+  },
+  {
+    "app_name": "Weather",
+    "package_name": "com.weather.forecast.weatherchannel",
+    "current_version": "6.8",
+    "updated": "23254",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.weather.forecast.weatherchannel.png"
+  },
+  {
+    "app_name": "Wifi Analyzer",
+    "package_name": "com.farproc.wifi.analyzer",
+    "current_version": "3.11.2",
+    "updated": "22277",
+    "min_core_req": "4",
+    "min_service_version": "Must grant location access to use this app",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.farproc.wifi.analyzer.png"
+  },
+  {
+    "app_name": "Wyze",
+    "package_name": "com.hualai",
+    "current_version": "2.50.2",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.hualai.png"
+  },
+  {
+    "app_name": "X",
+    "package_name": "com.twitter.android",
+    "current_version": "10.72.1",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.twitter.android.png"
+  },
+  {
+    "app_name": "Yahoo Finance",
+    "package_name": "com.yahoo.mobile.client.android.finance",
+    "current_version": "13.17.3",
+    "updated": "24362",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/apps-10/icons/com.yahoo.mobile.client.android.finance.png"
+  },
+  {
+    "app_name": "YouTube",
+    "package_name": "com.google.android.youtube",
+    "current_version": "20.26.45",
+    "updated": "250514",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.google.android.youtube.png"
+  },
+  {
+    "app_name": "YouTubeTV",
+    "package_name": "com.google.android.apps.youtube.unplugged",
+    "current_version": "9.35.1",
+    "updated": "250905",
+    "min_core_req": "4",
+    "apk_icon_url": "https://thermatouch.tsolup.com/vantron-apps/icons/com.google.android.apps.youtube.unplugged.png"
+  }
+]

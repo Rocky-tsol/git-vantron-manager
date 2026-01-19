@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Qt
+*.user
+*.pro.user
+.ui.autosave
+
+# Qt Creator / build
+build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual env
+venv/
+.env
