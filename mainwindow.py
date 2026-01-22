@@ -1,39 +1,34 @@
 import sys
-from PySide6.QtWidgets import QTreeWidgetItem, QMainWindow, QApplication, QHeaderView
+from PySide6.QtWidgets import QTreeWidgetItem, QMainWindow, QApplication, QHeaderView, QMessageBox, QFileDialog
 from ui_form import Ui_MainWindow
 from PySide6.QtCore import Qt
-
+from PySide6.QtGui import QBrush, QColor
 import os
+import json
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE_PATH = r"C:\Users\rocky\Documents\app_manager\vantron.json"
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        import json
-
+        self.current_file_path = None
+        self.ui.openjsonbutton.clicked.connect(self.open_json_file)
+        self.ui.saveButton.clicked.connect(self.save_to_file)
         self.ui.treeWidget.setTextElideMode(Qt.ElideNone)
+        self.ui.treeWidget.itemChanged.connect(self.on_item_changed)
+
         header = self.ui.treeWidget.header()
         header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
         header.setSectionResizeMode(1, QHeaderView.Stretch)
-
-        self.ui.saveButton.clicked.connect(self.save_to_file)
-
-        with open(FILE_PATH, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        apps = data
         header = self.ui.treeWidget.header()
-
         header.setStretchLastSection(True)
         header.setTextElideMode(Qt.ElideNone)
 
-        for app in apps:
-            self.add_app(app)
 
-        self.ui.treeWidget.itemChanged.connect(self.on_item_changed)
+
         self.ui.saveButton.setStyleSheet("""
         QPushButton {
             background-color: #000068;
@@ -51,9 +46,70 @@ class MainWindow(QMainWindow):
         }
         """)
 
+    def open_json_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(
+            self,
+            "Open JSON File",
+            "",
+            "JSON Files (*.json)"
+        )
+        if not file_path:
+            return
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", str(e))
+            return
+        if not isinstance(data, list):
+            QMessageBox.critical(self, "Invalid JSON", "JSON file must contain a list of apps")
+        self.current_file_path = file_path
+        self.load_apps(data)
+    def load_apps(self, apps):
+        self.ui.treeWidget.clear()
+        for app in apps:
+            self.add_app(app)
+
+    def validate_apps(self):
+        errors = []
+
+        for i in range(self.ui.treeWidget.topLevelItemCount()):
+            parent = self.ui.treeWidget.topLevelItem(i)
+            app_name = parent.text(0)
+
+
+
+            for j in range(parent.childCount()):
+                child = parent.child(j)
+                key = child.text(0)
+                value = child.text(1)
+                if value.strip() == "":
+                    errors.append(f"{app_name}: '{key}' cannot be blank.")
+                    child.setBackground(1, QBrush(QColor("#ccffcc")))
+                if value != value.strip():
+                    errors.append(f"{app_name}: '{key}' contains spaces at the start or end.")
+                    child.setBackground(1, QBrush(QColor("#ccffcc")))
+
+        return errors
+
     def save_to_file(self):
-        import json
+        if not self.current_file_path:
+            QMessageBox.warning(self, "No File Open", "Please open a JSON file first.")
+            return
+
+        errors = self.validate_apps()
+        if errors:
+            QMessageBox.critical(
+                self,
+                "Validation Error",
+                "\n".join(errors)
+            )
+            return
         data = self.export_to_json()
+
+        with open(self.current_file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=True)
+        QMessageBox.information(self, "Saved", "JSON file saved successfully.")
 
         with open(FILE_PATH, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
