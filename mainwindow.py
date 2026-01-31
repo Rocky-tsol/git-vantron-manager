@@ -5,6 +5,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QBrush, QColor
 import os
 import json
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE_PATH = r"C:\Users\rocky\Documents\app_manager\vantron.json"
 
@@ -17,7 +18,6 @@ class MainWindow(QMainWindow):
         self.current_file_path = None
         self.ui.openjsonbutton.clicked.connect(self.open_json_file)
         self.ui.saveButton.clicked.connect(self.save_to_file)
-        self.ui.treeWidget.setTextElideMode(Qt.ElideNone)
         self.ui.treeWidget.itemChanged.connect(self.on_item_changed)
 
         header = self.ui.treeWidget.header()
@@ -47,6 +47,8 @@ class MainWindow(QMainWindow):
         """)
 
     def open_json_file(self):
+        # Open a JSON file and load its contents into the tree widget to be edited
+
         file_path, _ = QFileDialog.getOpenFileName(
             self,
             "Open JSON File",
@@ -66,11 +68,17 @@ class MainWindow(QMainWindow):
         self.current_file_path = file_path
         self.load_apps(data)
     def load_apps(self, apps):
+        #clears tree then populates it with data
+
         self.ui.treeWidget.clear()
         for app in apps:
             self.add_app(app)
 
     def validate_apps(self):
+        """
+        Validates all editabl values in the tree.
+        returns a list of error messages if any issues are found.
+        """
         errors = []
 
         for i in range(self.ui.treeWidget.topLevelItemCount()):
@@ -93,6 +101,8 @@ class MainWindow(QMainWindow):
         return errors
 
     def save_to_file(self):
+        #Validate data and saves it back to the JSON file.
+
         if not self.current_file_path:
             QMessageBox.warning(self, "No File Open", "Please open a JSON file first.")
             return
@@ -107,16 +117,18 @@ class MainWindow(QMainWindow):
             return
         data = self.export_to_json()
 
+        #saves to the currently opened file
         with open(self.current_file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=True)
         QMessageBox.information(self, "Saved", "JSON file saved successfully.")
 
-        with open(FILE_PATH, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
+
 
         print("Saved to:", FILE_PATH)
 
     def add_app(self, app_data):
+        #add and single app and its fields to the tree widget
+
         parent = QTreeWidgetItem(self.ui.treeWidget)
         parent.setText(0, app_data["app_name"])
         parent.setExpanded(False)
@@ -129,6 +141,7 @@ class MainWindow(QMainWindow):
             child.setFlags(child.flags() | Qt.ItemIsEditable)
 
     def on_item_changed(self, item, column):
+        #Respond to edits made in the tree widget
         if item.parent() is None:
             return
         field = item.text(0)
@@ -138,6 +151,7 @@ class MainWindow(QMainWindow):
         print(f"{app_name} -> {field} updated to {new_value}")
 
     def export_to_json(self):
+        #Converts tree widget contents back into JSON compatible data
         data = []
         for i in range(self.ui.treeWidget.topLevelItemCount()):
             parent = self.ui.treeWidget.topLevelItem(i)
