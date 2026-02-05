@@ -164,7 +164,7 @@ class MainWindow(QMainWindow):
         print("Saved to:", FILE_PATH)
 
     def add_app(self, app_data):
-        #add and single app and its fields to the tree widget
+        #add a single app and its fields to the tree widget
 
         parent = QTreeWidgetItem(self.ui.treeWidget)
         parent.setText(0, app_data["app_name"])
@@ -231,6 +231,7 @@ class MainWindow(QMainWindow):
         self.ui.treeWidget.insertTopLevelItem(index, parent)
 
     def delete_selected_app(self):
+        # deletes highlighted app and asks for confirmation
         item = self.ui.treeWidget.currentItem()
 
         if not item:
