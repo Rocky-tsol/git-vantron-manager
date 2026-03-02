@@ -4,8 +4,8 @@ from ui_form import Ui_MainWindow
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QBrush, QColor
 import os
-import json
-
+import json, requests
+print(sys.executable)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE_PATH = r"C:\Users\rocky\Documents\app_manager\vantron.json"
 Pinned_apps = { "thermatouch service", "touchsteam"}      #add an app name to make it pinned at the top of json file
@@ -30,29 +30,50 @@ class AddAppDialog(QDialog):
         layout.addRow(buttons)
     def get_data(self):
         return {k: v.text() for k, v in self.fields.items()}
+
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.current_file_path = None
-        self.ui.openJsonbutton.clicked.connect(self.open_json_file)
+        self.ui.openJsonButton.clicked.connect(self.open_json_file)
         self.ui.saveButton.clicked.connect(self.save_to_file)
         self.ui.treeWidget.itemChanged.connect(self.on_item_changed)
         self.ui.addAppButton.clicked.connect(self.open_add_app_dialog)
         self.ui.deleteAppButton.clicked.connect(self.delete_selected_app)
-        header = self.ui.treeWidget.header()
+        self.ui.fetchButton.clicked.connect(self.fetch_json_from_server)
+        header = self.ui.treeWidget.header()                                  #gets rid of text elide
         header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
         header.setSectionResizeMode(1, QHeaderView.Stretch)
         header = self.ui.treeWidget.header()
         header.setStretchLastSection(True)
         header.setTextElideMode(Qt.ElideNone)
 
+        self.current_source = None     #tracks where json file came from
+        self.current_file_path = None
+        self.current_url = None
 
 
         self.ui.saveButton.setStyleSheet("""
         QPushButton {
             background-color: #000068;
+            color: #ffffff;
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+
+        QPushButton:hover {
+            background-color: #1e6fd9;
+        }
+
+        QPushButton:pressed {
+            background-color: #155fa0;
+        }
+        """)
+        self.ui.openJsonButton.setStyleSheet("""
+        QPushButton {
+            background-color: #680000;
             color: #ffffff;
             border-radius: 6px;
             padding: 6px 12px;
@@ -82,6 +103,60 @@ class MainWindow(QMainWindow):
             background-color: #155fa0;
         }
         """)
+        self.ui.deleteAppButton.setStyleSheet("""
+        QPushButton {
+            background-color: #680000;
+            color: #ffffff;
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+
+        QPushButton:hover {
+            background-color: #1e6fd9;
+        }
+
+        QPushButton:pressed {
+            background-color: #155fa0;
+        }
+        """)
+        self.ui.fetchButton.setStyleSheet("""
+        QPushButton {
+            background-color: #000068;
+            color: #ffffff;
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+
+        QPushButton:hover {
+            background-color: #1e6fd9;
+        }
+
+        QPushButton:pressed {
+            background-color: #155fa0;
+        }
+        """)
+
+
+    def fetch_json_from_server(self):
+        #fetches json from server and populates the list
+        url = "https://thermatouch.tsolup.com/vantron.json"
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+            data = response.json()
+            apps = data.get("app_details", [])
+
+            self.ui.treeWidget.clear()
+
+            for app in apps:
+                self.insert_app_alphabetically(app)
+            self.current_source = "server"
+            self.current_url = url
+
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            self.current_file_path = os.path.join(base_dir, "vantron.json")
+        except Exception as e:
+            QMessageBox.critical(self, "Download Error", str(e))
 
     def open_json_file(self):
         # Open a JSON file and load its contents into the tree widget to be edited
@@ -102,7 +177,9 @@ class MainWindow(QMainWindow):
             return
         if not isinstance(data, list):
             QMessageBox.critical(self, "Invalid JSON", "JSON file must contain a list of apps")
+        self.current_source = "local"
         self.current_file_path = file_path
+
         self.load_apps(data)
     def load_apps(self, apps):
         #clears tree then populates it with data
@@ -113,7 +190,7 @@ class MainWindow(QMainWindow):
 
     def validate_apps(self):
         """
-        Validates all editabl values in the tree.
+        Validates all editable values in the tree.
         returns a list of error messages if any issues are found.
         """
         errors = []
@@ -140,9 +217,9 @@ class MainWindow(QMainWindow):
     def save_to_file(self):
         #Validate data and saves it back to the JSON file.
 
-        if not self.current_file_path:
-            QMessageBox.warning(self, "No File Open", "Please open a JSON file first.")
-            return
+        # if not self.current_file_path:
+            # QMessageBox.warning(self, "No File Open", "Please open a JSON file first.")
+            # return
 
         errors = self.validate_apps()
         if errors:
@@ -154,20 +231,24 @@ class MainWindow(QMainWindow):
             return
         data = self.export_to_json()
 
-        #saves to the currently opened file
-        with open(self.current_file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=True)
-        QMessageBox.information(self, "Saved", "JSON file saved successfully.")
+        if self.current_file_path:
+            with open(self.current_file_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=True)
+        if self.current_source == "server":
+
+            QMessageBox.information(self, "Saved", "Saved to local file.")
+
+
 
 
 
         print("Saved to:", FILE_PATH)
 
     def add_app(self, app_data):
-        #add and single app and its fields to the tree widget
+        #add a single app and its fields to the tree widget
 
         parent = QTreeWidgetItem(self.ui.treeWidget)
-        parent.setText(0, app_data["app_name"])
+        parent.setText(0, str(app_data["app_name"]))
         parent.setExpanded(False)
         for key, value in app_data.items():
             child = QTreeWidgetItem(parent)
@@ -220,17 +301,18 @@ class MainWindow(QMainWindow):
             index += 1
 
         parent = QTreeWidgetItem()
-        parent.setText(0, app_data["app_name"])
+        parent.setText(0, str(app_data["app_name"]))
         parent.setFirstColumnSpanned(True)
 
         for key, value in app_data.items():
             child = QTreeWidgetItem(parent)
             child.setText(0, key)
-            child.setText(1, value)
+            child.setText(1, str(value))
             child.setFlags(child.flags() | Qt.ItemIsEditable)
         self.ui.treeWidget.insertTopLevelItem(index, parent)
 
     def delete_selected_app(self):
+        # deletes highlighted app and asks for confirmation
         item = self.ui.treeWidget.currentItem()
 
         if not item:
