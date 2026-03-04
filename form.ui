@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ThermaTouch App Manager 1.0</string>
+   <string>ThermaTouch App Manager 1.1</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTreeWidget" name="treeWidget">

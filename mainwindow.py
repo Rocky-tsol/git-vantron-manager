@@ -7,8 +7,7 @@ import os
 import json, requests
 print(sys.executable)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FILE_PATH = r"C:\Users\rocky\Documents\app_manager\vantron.json"
-Pinned_apps = { "thermatouch service", "touchsteam"}      #add an app name to make it pinned at the top of json file
+PINNED_APPS = { "thermatouch service", "touchsteam"}      #add an app name in lowercase to make it pinned at the top of json file
 class AddAppDialog(QDialog):
     #dialog box that has the fields to add app
     def __init__(self, parent=None):
@@ -177,6 +176,7 @@ class MainWindow(QMainWindow):
             return
         if not isinstance(data, list):
             QMessageBox.critical(self, "Invalid JSON", "JSON file must contain a list of apps")
+            return
         self.current_source = "local"
         self.current_file_path = file_path
 
@@ -238,11 +238,13 @@ class MainWindow(QMainWindow):
 
             QMessageBox.information(self, "Saved", "Saved to local file.")
 
+        folder = os.getcwd()  #gets current directory
+        filename = "vantron.json"
+        file_path = os.path.join(folder, filename)
 
 
 
-
-        print("Saved to:", FILE_PATH)
+        print("Saved to:", file_path)
 
     def add_app(self, app_data):
         #add a single app and its fields to the tree widget
@@ -286,11 +288,11 @@ class MainWindow(QMainWindow):
         for i in range(self.ui.treeWidget.topLevelItemCount()):
         # counts the pinned apps already in tree
             name = self.ui.treeWidget.topLevelItem(i).text(0).lower()
-            if name in Pinned_apps:
+            if name in PINNED_APPS:
                 pinned_count += 1
             else:
                 break
-        if new_name in Pinned_apps:
+        if new_name in PINNED_APPS:
             index = pinned_count
         else:
             index = pinned_count
